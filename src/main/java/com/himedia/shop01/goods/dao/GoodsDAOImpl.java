@@ -26,8 +26,8 @@ public class GoodsDAOImpl implements GoodsDAO{
 
 	@Override
 	public List<String> selectKeywordSearch(String keyword) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		 List<String> list=(ArrayList)sqlSession.selectList("mapper.goods.selectKeywordSearch",keyword);
+		   return list;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public class GoodsDAOImpl implements GoodsDAO{
 
 	@Override
 	public List<GoodsVO> selectGoodsBySearchWord(String searchWord) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList list=(ArrayList)sqlSession.selectList("mapper.goods.selectGoodsBySearchWord",searchWord);
+		 return list;
 	}
 	
 	

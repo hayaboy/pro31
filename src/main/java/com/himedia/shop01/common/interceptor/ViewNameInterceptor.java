@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 
-//servlet-context¿¡¼­ ÀÎÅÍ¼ÁÅÍ ¼³Á¤ÇØ³õÀ½
+//servlet-contextì—ì„œ ì¸í„°ì…‰í„° ì„¤ì •í•´ë†“ìŒ
 public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 
 	
@@ -18,8 +18,8 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 		 try {
 				String viewName = getViewName(request);
 				request.setAttribute("viewName", viewName);
-				System.out.println("ÀÎÅÍ¼ÁÅÍ¿¡¼­ ÂïÀº ºä³×ÀÓ"+viewName);
-				System.out.println("----- ¿©±â±îÁö ÀÎÅÍ¼ÁÅÍÀÇ ¿ªÇÒ");
+				System.out.println("ì¸í„°ì…‰í„°ì—ì„œ ì°ì€ ë·°ë„¤ì„"+viewName);
+				System.out.println("----- ì—¬ê¸°ê¹Œì§€ ì¸í„°ì…‰í„°ì˜ ì—­í• ");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -34,14 +34,14 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 			if (uri == null || uri.trim().equals("")) {
 				uri = request.getRequestURI();
 			}
-			System.out.println("getRequestURI()ÅëÇØ °¡Á®¿Â uri:" + uri);
+			System.out.println("getRequestURI()í†µí•´ ê°€ì ¸ì˜¨ uri:" + uri);
 			int begin = 0;
 			if (!((contextPath == null) || ("".equals(contextPath)))) {
 				begin = contextPath.length();
 			}
-			System.out.println("Ã³À½ ÀÎµ¦½º À§Ä¡(ÄÁÅØ½ºÇÁ ÆĞ½º ±æÀÌ):" +begin);
+			System.out.println("ì²˜ìŒ ì¸ë±ìŠ¤ ìœ„ì¹˜(ì»¨í…ìŠ¤í”„ íŒ¨ìŠ¤ ê¸¸ì´):" +begin);
 			int end;
-			System.out.println(";ÀÇ À§Ä¡, ¾øÀ¸¸é -1:" + uri.indexOf(";"));
+			System.out.println(";ì˜ ìœ„ì¹˜, ì—†ìœ¼ë©´ -1:" + uri.indexOf(";"));
 			if (uri.indexOf(";") != -1) {
 				end = uri.indexOf(";");
 			} else if (uri.indexOf("?") != -1) {
@@ -49,17 +49,17 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 			} else {
 				end = uri.length();
 			}
-			System.out.println("uriÀÇ ±æÀÌ:"+end);
+			System.out.println("uriì˜ ê¸¸ì´:"+end);
 			
 			String viewName = uri.substring(begin, end);
-			System.out.println("ÃÖÁ¾ ºä³×ÀÓ"+viewName);
+			System.out.println("ìµœì¢… ë·°ë„¤ì„"+viewName);
 			
-			System.out.println( "ºä³×ÀÓ¿¡ .ÀÌ ¾øÀ¸¸é -1, ¸¸¾à ÀÖÀ¸¸é ±× À§Ä¡ :  " +viewName.indexOf("."));
+			System.out.println( "ë·°ë„¤ì„ì— .ì´ ì—†ìœ¼ë©´ -1, ë§Œì•½ ìˆìœ¼ë©´ ê·¸ ìœ„ì¹˜ :  " +viewName.indexOf("."));
 			if (viewName.indexOf(".") != -1) {
 				viewName = viewName.substring(0, viewName.lastIndexOf("."));
-				System.out.println("¸¶Áö¸· Á¡¾ÕÀ¸·Î ÀÖ´Â ºÎºĞ¸¸ °¡Á®¿È :" + viewName);
+				System.out.println("ë§ˆì§€ë§‰ ì ì•ìœ¼ë¡œ ìˆëŠ” ë¶€ë¶„ë§Œ ê°€ì ¸ì˜´ :" + viewName);
 			}
-			System.out.println( "ºä³×ÀÓ¿¡ /ÀÌ ¾øÀ¸¸é -1, ¸¸¾à ÀÖÀ¸¸é ¸¶Áö¸· ±× À§Ä¡ :  " +viewName.lastIndexOf("/"));
+			System.out.println( "ë·°ë„¤ì„ì— /ì´ ì—†ìœ¼ë©´ -1, ë§Œì•½ ìˆìœ¼ë©´ ë§ˆì§€ë§‰ ê·¸ ìœ„ì¹˜ :  " +viewName.lastIndexOf("/"));
 			if (viewName.lastIndexOf("/") != -1) {
 				viewName = viewName.substring(viewName.lastIndexOf("/",1), viewName.length());
 				System.out.println(viewName);

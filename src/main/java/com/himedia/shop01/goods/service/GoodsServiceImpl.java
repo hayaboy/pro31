@@ -44,13 +44,13 @@ public class GoodsServiceImpl implements GoodsService{
 
 	@Override
 	public List<String> keywordSearch(String keyword) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> list=goodsDAO.selectKeywordSearch(keyword);
+		return list;
 	}
 
 	@Override
 	public List<GoodsVO> searchGoods(String searchWord) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List goodsList=goodsDAO.selectGoodsBySearchWord(searchWord);
+		return goodsList;
 	}
 }
