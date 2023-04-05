@@ -32,8 +32,8 @@ public class FileDownloadController {
 		
 		byte[] buffer=new byte[1024*8];
 		while(true){
-			int count=in.read(buffer); //���ۿ� �о���� ���ڰ���
-			if(count==-1)  //������ �������� �����ߴ��� üũ
+			int count=in.read(buffer); // 버퍼에 읽어들인 문자개수
+			if(count==-1)   // 버퍼의 마지막에 도달했는지 체크
 				break;
 			out.write(buffer,0,count);
 		}

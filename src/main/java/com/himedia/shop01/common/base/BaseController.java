@@ -28,22 +28,22 @@ public abstract class BaseController {
 		while(fileNames.hasNext()){
 			ImageFileVO imageFileVO =new ImageFileVO();
 			String fileName = fileNames.next();
-			System.out.println("ÆÄÀÏ ³×ÀÓ : " + fileName);
+			System.out.println("fileName : " + fileName);
 			imageFileVO.setFileType(fileName);
 			MultipartFile mFile = multipartRequest.getFile(fileName);
 			String originalFileName=mFile.getOriginalFilename();
-			System.out.println("¿À¸®Áö³Î ÆÄÀÏ ÀÌ¸§ :  " + originalFileName);
+			System.out.println("originalFileName :  " + originalFileName);
 			imageFileVO.setFileName(originalFileName);
 			fileList.add(imageFileVO);
 			
 			File file = new File(CURR_IMAGE_REPO_PATH +"\\"+ fileName);
 			if(mFile.getSize()!=0){ //File Null Check
-				if(! file.exists()){ //°æ·Î»ó¿¡ ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾ÊÀ» °æ¿ì
-					if(file.getParentFile().mkdirs()){ //°æ·Î¿¡ ÇØ´çÇÏ´Â µğ·ºÅä¸®µéÀ» »ı¼º
-							file.createNewFile(); //ÀÌÈÄ ÆÄÀÏ »ı¼º
+				if(! file.exists()){ //ê²½ë¡œìƒì— íŒŒì¼ì´ ì¡´ì¬í•˜ì§€ ì•Šì„ ê²½ìš°
+					if(file.getParentFile().mkdirs()){ ////ê²½ë¡œì— í•´ë‹¹í•˜ëŠ” ë””ë ‰í† ë¦¬ë“¤ì„ ìƒì„±
+							file.createNewFile(); //ì´í›„ íŒŒì¼ ìƒì„±
 					}
 				}
-				mFile.transferTo(new File(CURR_IMAGE_REPO_PATH +"\\"+"temp"+ "\\"+originalFileName)); //ÀÓ½Ã·Î ÀúÀåµÈ multipartFileÀ» ½ÇÁ¦ ÆÄÀÏ·Î Àü¼Û
+				mFile.transferTo(new File(CURR_IMAGE_REPO_PATH +"\\"+"temp"+ "\\"+originalFileName)); //ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ multipartFileï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 		}
 		return fileList;
