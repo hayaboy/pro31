@@ -38,12 +38,12 @@ public abstract class BaseController {
 			
 			File file = new File(CURR_IMAGE_REPO_PATH +"\\"+ fileName);
 			if(mFile.getSize()!=0){ //File Null Check
-				if(! file.exists()){ //ê²½ë¡œìƒì— íŒŒì¼ì´ ì¡´ì¬í•˜ì§€ ì•Šì„ ê²½ìš°
-					if(file.getParentFile().mkdirs()){ ////ê²½ë¡œì— í•´ë‹¹í•˜ëŠ” ë””ë ‰í† ë¦¬ë“¤ì„ ìƒì„±
-							file.createNewFile(); //ì´í›„ íŒŒì¼ ìƒì„±
+				if(! file.exists()){ //°æ·Î»ó¿¡ ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾ÊÀ» °æ¿ì
+					if(file.getParentFile().mkdirs()){ ////°æ·Î¿¡ ÇØ´çÇÏ´Â µğ·ºÅä¸®µéÀ» »ı¼º
+							file.createNewFile(); //ÀÌÈÄ ÆÄÀÏ »ı¼º
 					}
 				}
-				mFile.transferTo(new File(CURR_IMAGE_REPO_PATH +"\\"+"temp"+ "\\"+originalFileName)); //ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ multipartFileï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
+				mFile.transferTo(new File(CURR_IMAGE_REPO_PATH +"\\"+"temp"+ "\\"+originalFileName)); 
 			}
 		}
 		return fileList;

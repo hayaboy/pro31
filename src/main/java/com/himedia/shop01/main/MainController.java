@@ -20,17 +20,12 @@ import com.himedia.shop01.goods.vo.GoodsVO;
 
 
 /* 
- * @EnableAspectJAutoProxyëŠ” ìŠ¤í”„ë§ í”„ë ˆìž„ì›Œí¬ì—ì„œ AOPë¥¼ ì ìš©í•˜ëŠ” ë°©ë²• ì¤‘ í•˜ë‚˜ìž…ë‹ˆë‹¤. ì´ ì–´ë…¸í…Œì´ì…˜ì„ ì‚¬ìš©í•˜ë©´ Spring AOPë¥¼ ì‚¬ìš©í•  ìˆ˜ ìžˆìœ¼ë©°, í”„ë¡ì‹œ ê¸°ë°˜ AOPë¥¼ ì§€ì›í•˜ëŠ” ë° ì‚¬ìš©ë©ë‹ˆë‹¤.
-
-@EnableAspectJAutoProxy ì–´ë…¸í…Œì´ì…˜ì€ ë‹¤ìŒê³¼ ê°™ì€ ì—­í• ì„ ìˆ˜í–‰í•©ë‹ˆë‹¤.
-
-AspectJ í”„ë¡ì‹œë¥¼ í™œì„±í™”: @EnableAspectJAutoProxyë¥¼ ì‚¬ìš©í•˜ë©´ AspectJ í”„ë¡ì‹œë¥¼ í™œì„±í™” í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ì´ í”„ë¡ì‹œëŠ” Spring AOPì—ì„œ ì‚¬ìš©ë˜ë©°, ë©”ì†Œë“œ í˜¸ì¶œ ë“±ì˜ ì¡°ì¸ í¬ì¸íŠ¸ì—ì„œ AOPë¥¼ ì ìš©í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
-
-AOP Proxy Bean ìƒì„±: @EnableAspectJAutoProxyë¥¼ ì‚¬ìš©í•˜ë©´ Springì´ AOP í”„ë¡ì‹œ ë¹ˆì„ ìƒì„±í•©ë‹ˆë‹¤. ì´ ë¹ˆì€ ì• ìŠ¤íŽ™íŠ¸ë¥¼ ì‚¬ìš©í•˜ì—¬ ë¹ˆ ë©”ì†Œë“œ í˜¸ì¶œì„ í”„ë¡ì‹œí™”í•©ë‹ˆë‹¤. ì´ë¥¼ í†µí•´ íš¡ë‹¨ ê´€ì‹¬ì‚¬(cross-cutting concern)ë¥¼ ì‰½ê²Œ êµ¬í˜„í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
-
-ì–´ë“œë°”ì´ìŠ¤(Advice) ì ìš©: @EnableAspectJAutoProxyëŠ” AOP í”„ë¡ì‹œ ë¹ˆì„ ìƒì„±í•˜ê³ , ì´ë¥¼ í†µí•´ ì• ìŠ¤íŽ™íŠ¸ë¥¼ ì ìš©í•©ë‹ˆë‹¤. ì• ìŠ¤íŽ™íŠ¸ëŠ” ì–´ë“œë°”ì´ìŠ¤(Advice)ë¥¼ í¬í•¨í•˜ë©°, ì–´ë“œë°”ì´ìŠ¤ëŠ” ì¡°ì¸ í¬ì¸íŠ¸ì— ì ìš©ë˜ëŠ” ì½”ë“œë¥¼ ì •ì˜í•©ë‹ˆë‹¤.
-
-í”„ë¡ì‹œ ê°ì²´ ìƒì„±: @EnableAspectJAutoProxyëŠ” Springì´ í”„ë¡ì‹œ ê°ì²´ë¥¼ ìƒì„±í•˜ê³ , ì›ë³¸ ê°ì²´ì™€ ëŒ€ì²´í•˜ëŠ” ë° ì‚¬ìš©ë©ë‹ˆë‹¤. ì´ë¥¼ í†µí•´ AOP í”„ë¡ì‹œë¥¼ ìƒì„±í•˜ê³ , í”„ë¡ì‹œ ê°ì²´ë¥¼ ì‚¬ìš©í•˜ì—¬ ë©”ì†Œë“œ í˜¸ì¶œ ë“±ì˜ ì¡°ì¸ í¬ì¸íŠ¸ì—ì„œ ì• ìŠ¤íŽ™íŠ¸ë¥¼ ì ìš©í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+ * @EnableAspectJAutoProxy´Â ½ºÇÁ¸µ ÇÁ·¹ÀÓ¿öÅ©¿¡¼­ AOP¸¦ Àû¿ëÇÏ´Â ¹æ¹ý Áß ÇÏ³ªÀÔ´Ï´Ù. ÀÌ ¾î³ëÅ×ÀÌ¼ÇÀ» »ç¿ëÇÏ¸é Spring AOP¸¦ »ç¿ëÇÒ ¼ö ÀÖÀ¸¸ç, ÇÁ·Ï½Ã ±â¹Ý AOP¸¦ Áö¿øÇÏ´Â µ¥ »ç¿ëµË´Ï´Ù.
+@EnableAspectJAutoProxy ¾î³ëÅ×ÀÌ¼ÇÀº ´ÙÀ½°ú °°Àº ¿ªÇÒÀ» ¼öÇàÇÕ´Ï´Ù.
+AspectJ ÇÁ·Ï½Ã¸¦ È°¼ºÈ­: @EnableAspectJAutoProxy¸¦ »ç¿ëÇÏ¸é AspectJ ÇÁ·Ï½Ã¸¦ È°¼ºÈ­ ÇÒ ¼ö ÀÖ½À´Ï´Ù. ÀÌ ÇÁ·Ï½Ã´Â Spring AOP¿¡¼­ »ç¿ëµÇ¸ç, ¸Þ¼Òµå È£Ãâ µîÀÇ Á¶ÀÎ Æ÷ÀÎÆ®¿¡¼­ AOP¸¦ Àû¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+AOP Proxy Bean »ý¼º: @EnableAspectJAutoProxy¸¦ »ç¿ëÇÏ¸é SpringÀÌ AOP ÇÁ·Ï½Ã ºóÀ» »ý¼ºÇÕ´Ï´Ù. ÀÌ ºóÀº ¾Ö½ºÆåÆ®¸¦ »ç¿ëÇÏ¿© ºó ¸Þ¼Òµå È£ÃâÀ» ÇÁ·Ï½ÃÈ­ÇÕ´Ï´Ù. ÀÌ¸¦ ÅëÇØ È¾´Ü °ü½É»ç(cross-cutting concern)¸¦ ½±°Ô ±¸ÇöÇÒ ¼ö ÀÖ½À´Ï´Ù.
+¾îµå¹ÙÀÌ½º(Advice) Àû¿ë: @EnableAspectJAutoProxy´Â AOP ÇÁ·Ï½Ã ºóÀ» »ý¼ºÇÏ°í, ÀÌ¸¦ ÅëÇØ ¾Ö½ºÆåÆ®¸¦ Àû¿ëÇÕ´Ï´Ù. ¾Ö½ºÆåÆ®´Â ¾îµå¹ÙÀÌ½º(Advice)¸¦ Æ÷ÇÔÇÏ¸ç, ¾îµå¹ÙÀÌ½º´Â Á¶ÀÎ Æ÷ÀÎÆ®¿¡ Àû¿ëµÇ´Â ÄÚµå¸¦ Á¤ÀÇÇÕ´Ï´Ù.
+ÇÁ·Ï½Ã °´Ã¼ »ý¼º: @EnableAspectJAutoProxy´Â SpringÀÌ ÇÁ·Ï½Ã °´Ã¼¸¦ »ý¼ºÇÏ°í, ¿øº» °´Ã¼¿Í ´ëÃ¼ÇÏ´Â µ¥ »ç¿ëµË´Ï´Ù. ÀÌ¸¦ ÅëÇØ AOP ÇÁ·Ï½Ã¸¦ »ý¼ºÇÏ°í, ÇÁ·Ï½Ã °´Ã¼¸¦ »ç¿ëÇÏ¿© ¸Þ¼Òµå È£Ãâ µîÀÇ Á¶ÀÎ Æ÷ÀÎÆ®¿¡¼­ ¾Ö½ºÆåÆ®¸¦ Àû¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
  * 
  * 
  * */
@@ -50,7 +45,7 @@ public class MainController extends BaseController {
 		mav.setViewName(viewName);
 		
 		session=request.getSession();
-		// ì‚¬ìš©ìžì— ë”°ë¥¸ ë©”ë‰´ì˜ êµ¬ì„±ì´ ë‹¬ë¼ì§
+		// »ç¿ëÀÚ¿¡ µû¸¥ ¸Þ´ºÀÇ ±¸¼ºÀÌ ´Þ¶óÁü
 		session.setAttribute("side_menu", "user");
 		Map<String,List<GoodsVO>> goodsMap=goodsService.listGoods();
 		

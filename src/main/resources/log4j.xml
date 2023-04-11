@@ -4,6 +4,9 @@
 
 	<!-- Appenders -->
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<encoder>
+		<charset>UTF-8</charset>
+		</encoder>
 		<param name="Target" value="System.out" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
@@ -34,6 +37,9 @@
 
 	<!-- Root Logger -->
 	<root>
+	<encoder>
+		<charset>UTF-8</charset>
+		</encoder>
 		<priority value="debug" />
 		<appender-ref ref="console" />
 	</root>
